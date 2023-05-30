@@ -1,0 +1,27 @@
+import matplotlib.pyplot as plt
+import numpy as np
+#define cases for quick sort
+def best_case(n):
+    return n * np.log2(n)
+def average_case(n):
+    return n * np.log2(n)
+def worst_case(n) :
+    return n ** 2
+
+#generate data points
+x_values= np.arange(1, 101 , 1)
+best_case_values=[best_case(x) for x in x_values]
+average_case_values=[average_case(x) for x in x_values]
+worst_case_values= [worst_case(x) for x in x_values]
+
+#Plot the curves
+plt.figure(figsize=(12,6))
+plt.plot(x_values, best_case_values, '-g', label='best Case: $O(n \log n)$')
+plt.plot(x_values, average_case_values, '-b', label='average Case: $O(n \log n)$')
+plt.plot(x_values, worst_case_values, '-r', label='worst Case: $O(n^2)$')
+plt.title('Quick Sort Time Complexity')
+plt.xlabel('Input Size(n)')
+plt.ylabel('Number of Operations')
+plt.legend()
+plt.grid()
+plt.show()
